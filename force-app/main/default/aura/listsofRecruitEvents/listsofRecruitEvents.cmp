@@ -1,0 +1,9 @@
+<aura:component implements="lightning:isUrlAddressable" >
+	<aura:attribute name="listofRecEvents" type="String" />
+   <!-- <aura:handler name="init" value="{!this}" action="{!c.onPageReferenceChange}"/> -->
+    <lightning:card title="Recruitment Event List">
+        <!--<aura:iteration items="{!v.listofRecEvents}" var="item"> -->
+            <p class="slds-p-horizontal_small"> Recruitment Event Id {!v.listofRecEvents} </p>
+        <!--</aura:iteration>       -->
+    </lightning:card>   
+</aura:component>

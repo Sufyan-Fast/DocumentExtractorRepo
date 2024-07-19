@@ -1,0 +1,7 @@
+.sticky {
+    top: 0;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    z-index: 9899999999999;
+  }

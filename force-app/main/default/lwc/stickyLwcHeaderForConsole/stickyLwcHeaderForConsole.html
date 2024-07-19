@@ -1,0 +1,26 @@
+<template>
+    <div class="myStickyHeader sticky" id="myHeader" style={stickyMargin}>
+        <!-- <template if:true={isVisible}>  -->
+        <div style="padding: 0px 16px 10px 16px; background-color:#00164c">
+            <ul class="slds-page-header__detail-row" style="padding: 16px; background-color:#00164c">
+                <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate" title="Contact"><p style="color:white">Contact</p></div>
+                    <div class="slds-truncate" title="Contact">
+                        <a href="#"><p style="color:white"> {SFretention.ContactName}</p></a></div>
+                </li>
+                <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate" title="Specialty"><p style="color:white">Specialty</p></div>
+                    <div class="slds-truncate" title="Specialty">
+                        <p style="color:white"> {SFretention.Speciality}</p>
+                    </div>
+                </li>
+                <!-- <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate" title="Industry">Industry</div>
+                    <div class="slds-truncate" title="Industry">
+                        {account.Industry}</div>
+                </li> -->
+            </ul>
+        </div>
+        <!-- </template> -->
+    </div>
+</template>

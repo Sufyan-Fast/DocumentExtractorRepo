@@ -1,0 +1,29 @@
+<template>
+    <lightning-quick-action-panel header="Edit Fields Action">
+      <lightning-record-edit-form
+        record-id={recordId}
+        object-api-name={Contact}
+        onsuccess={handleSuccess}>
+        <lightning-card icon-name="standard:account" variant="base">
+          <div slot="title">
+              Card Title
+          </div>
+          <div slot="actions">
+        
+          </div>
+          <div slot="footer">
+        
+          </div>
+          <div>
+            <!-- Card Body  -->
+            
+          </div>
+        </lightning-card>
+        <lightning-input-field field-name="Name"></lightning-input-field>
+        <lightning-input-field field-name="Phone"></lightning-input-field>
+        <lightning-button variant="neutral" label="Cancel"></lightning-button>
+        <lightning-button variant="brand" class="slds-m-left_x-small" label="Save" type="submit">
+        </lightning-button>
+      </lightning-record-edit-form>
+    </lightning-quick-action-panel>
+  </template>

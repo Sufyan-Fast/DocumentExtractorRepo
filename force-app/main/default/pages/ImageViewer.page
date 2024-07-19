@@ -1,0 +1,22 @@
+<apex:page standardController="Attachment" showHeader="false" sidebar="false">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/>
+    <script>
+        // Override download button behavior
+       j$(document).ready(function(){
+           j$("#downloadButton").click(function(){
+                // Your custom logic here
+                alert("Custom download action triggered!");
+                return false; // Prevent default download behavior
+            });
+        });
+    </script>
+    <apex:iframe src="/servlet/servlet.FileDownload?file={!Attachment.Id}" width="100%" height="500px"/>
+  
+</apex:page>
+
+
+
+
+<!--<apex:page >    
+    <apex:image url="https://mytelespecialists.sharepoint.com/:b:/r/sites/Test2SalesforceIntegration/Documents/Providers/Donald%20Lee/Muhammad%20Ghous%20Resume%20(1).pdf?csf=1&web=1&e=k9M8WK"/>
+</apex:page> -->

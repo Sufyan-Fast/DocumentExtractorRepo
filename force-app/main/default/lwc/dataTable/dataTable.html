@@ -1,0 +1,16 @@
+<template>
+
+    <lightning-card title="DataTable For Account">
+        <div >          
+            <lightning-input type="text" label="Enter some text" value={searchTerm} onchange={handleInputChange}></lightning-input>
+            <br>
+            <br>
+            <lightning-datatable
+                    key-field="Id" 
+                    data={data}
+                    columns={columns}>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,15 @@
+<apex:page standardController="Recruitment_Event__c" recordSetVar="recEve" extensions="VFC_ProcessrecEveRecords" >
+      <apex:includeLightning />
+    <div  id="compContainer" />
+  <script>
+     $Lightning.use("c:sendEmailList", function() {
+         $Lightning.createComponent("c:listsofRecruitEvents",
+             {listofRecEvents:"Micro System"},
+             "compContainer",
+             function(cmp) {
+          console.log("c:VFPageApp loaded successfully in VF page");
+             }
+         );
+     });
+  </script>
+</apex:page>

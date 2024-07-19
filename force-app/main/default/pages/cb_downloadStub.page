@@ -1,0 +1,61 @@
+<apex:page showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" controller="CB_DownloadStubController" action="{!populateUrl}">
+    <html>
+        <head>
+            <apex:slds />
+            <script>
+                function hideSpinner() {
+                    const spinner = document.getElementById("spinner");
+                    if (spinner) {
+                        spinner.style.visibility = "hidden";
+                    }
+                }
+            
+                function onUrlPopulated() {
+                    var url = "{!url}";
+                    if (url) {
+                        window.location.href = url;
+                    } else {
+                        hideSpinner();
+                        document.getElementById("errorDetail").innerText = "SharePoint URL is not available.";
+                        document.getElementById("errorPrompt").style.display = "";
+                    }
+                }
+
+                window.addEventListener("beforeunload", function() {
+                    // If we have not been redirected to the login page, then we can just close when we lose focus and then regain it
+                    window.addEventListener("blur", function() { // blur: user has clicked the download
+                        window.addEventListener("focus", window.close); //focus: download dialog dismissed, returned to page
+                    }); 
+                    setTimeout(hideSpinner, 2000); // If they download, but do not open the file, then just stop showing the spinner
+                });
+
+            </script>
+        </head>
+        <body onload="onUrlPopulated();">
+            <div class="slds-scope">
+                <div id="spinner" role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                    <span class="slds-assistive-text">Please Wait</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+                <div style="display: none" id="errorPrompt">
+                    <section role="alertdialog" tabindex="0" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+                        <div class="slds-modal__container">
+                            <header class="slds-modal__header slds-theme_error slds-theme_alert-texture">
+                                <h2 class="slds-text-heading_medium" id="prompt-heading-id">Anonymous SharePoint Access Unavailable</h2>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" id="prompt-message-wrapper">
+                                <p class="slds-text-font_monospace slds-p-around_medium" id="errorDetail"></p>
+                                <p>If you have a SharePoint account you may access the file by logging in to SharePoint instead</p>
+                            </div>
+                            <footer class="slds-modal__footer slds-theme_default">
+                                <a class="slds-button slds-button_neutral" id="errorButton">Log in to SharePoint</a>
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

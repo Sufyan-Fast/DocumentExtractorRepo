@@ -1,0 +1,27 @@
+<template>
+    <lightning-input-rich-text
+      value={fieldValue}
+      label={fieldLabel}
+      label-visible
+      required={required}
+      formats={allowedFormats}
+      valid={validity}
+      class="visibleLines"
+      onchange={handleChange}
+      share-with-entity-id={recordId}
+      message-when-bad-input={errorMessage}
+    >
+    </lightning-input-rich-text>
+  
+    <div class="slds-form-element">
+      <label class="slds-form-element__label" for="file-upload">Attachment</label>
+      <div class="slds-form-element__control">
+        <input
+          type="file"
+          id="file-upload"
+          onchange={handleUploadFinished}
+          class="slds-input"
+        />
+      </div>
+    </div>
+  </template>
